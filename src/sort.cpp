@@ -60,7 +60,7 @@ namespace sort{
 		quickSort(A, 0, n - 1);
 	}
 
-	int  k_smallest(float* A, int i, int j, int k){
+	int  k_smallest(float* A, int i, int j, int k){    //retorna el valor mas pequño del arreglo (creo) //
 		int p = split_qs(A, i, j);
 		int val = 0;
 		if (k == p){
@@ -78,6 +78,18 @@ namespace sort{
 	int  k_smallest(float* A, int n, int k){
 		return k_smallest(A, 0, n-1, k);
 	}
+
+	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
+
+    void mergeSort(){
+
+	};
+
+	void insertionSort(){
+
+	};
+
+
 
 }
 
