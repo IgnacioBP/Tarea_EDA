@@ -1,3 +1,0 @@
-C:/Users/ibrav/Desktop/tercer year_segundo semestre/Estructura de datos y algoritmos/eda_cpp/sort/build/CMakeFiles/test.dir
-C:/Users/ibrav/Desktop/tercer year_segundo semestre/Estructura de datos y algoritmos/eda_cpp/sort/build/CMakeFiles/edit_cache.dir
-C:/Users/ibrav/Desktop/tercer year_segundo semestre/Estructura de datos y algoritmos/eda_cpp/sort/build/CMakeFiles/rebuild_cache.dir
