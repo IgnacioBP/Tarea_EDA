@@ -85,17 +85,17 @@ namespace sort{
 
 	};
 
-	void insertionSort(float* A,int n){
-
-		for (int i; 1 ; n){
+	void insertionSort(float* A,int n){     // ♦♦♦♦♦ INSERTION SORT ♦♦♦♦♦♦♦♦♦♦
+		for (int i=1; i<n ; i++){
 			int val=A[i];
-
-
-		}
+			int prev=i-1;
+			while (prev>=0 && val<A[prev]){
+				A[prev+1] =A[prev];
+				prev=prev-1;
+			};
+			A[prev+1]=val;
+		};
 	};
-
-
-
 }
 
 

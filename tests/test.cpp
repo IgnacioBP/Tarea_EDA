@@ -41,10 +41,10 @@ void pre_test(int max_size){  //PARA PROBAR EL METODO CON SOLO UN ARREGLO PARA P
 	std::cout<<"-------"<<std::endl;
 
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-	sort::quickSort(A, n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
+	sort::insertionSort(A, n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-	//Muestra el resultado del Arreglo....se supone
+	//Muestra el resultado del Arreglo
 	sort::printArray(A, n);
 }	
 
