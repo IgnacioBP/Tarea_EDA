@@ -81,12 +81,17 @@ namespace sort{
 
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
 
-    void mergeSort(){
+    void mergeSort(float* A){
 
 	};
 
-	void insertionSort(){
+	void insertionSort(float* A,int n){
 
+		for (int i; 1 ; n){
+			int val=A[i];
+
+
+		}
 	};
 
 
