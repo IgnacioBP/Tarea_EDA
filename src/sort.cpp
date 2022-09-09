@@ -80,7 +80,8 @@ namespace sort{
 	}
 
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
-
+	
+	// ♦♦♦♦♦ MERGE SORT ♦♦♦♦♦♦♦♦♦♦
     void mergeSort(float* A,int i,int j) { // n es el tamaño del arreglo
 		int k=(i + j)/2;
 		if (i < j){
