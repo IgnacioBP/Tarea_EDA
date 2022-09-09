@@ -81,9 +81,52 @@ namespace sort{
 
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
 
-    void mergeSort(float* A){
-
+    void mergeSort(float* A,int i,int j) { // n es el tamaño del arreglo
+		int k=(i + j)/2;
+		if (i < j){
+			mergeSort(A, i, k);
+			mergeSort(A, k + 1, j);
+			merge(A, i,j, k);
+		}
 	};
+
+	void merge(float* A,int i,int j,int k){// i ,j,k son limites de  los arreglos [i,k] [k+1,j]
+	//Creamos un arreglo auxiliar }
+	float* Aux = nullptr;
+	Aux=createArray(j+1-i);
+	//
+	int index=0;
+	int s1=i;
+	int s2=k+1;
+	while(s1<=k && s2<=j){
+		if(A[s1]<=A[s2]){
+			Aux[index]=A[s1];
+			s1=s1 + 1;
+		}
+		else{
+			Aux[index]=A[s2];
+			s2=s2 + 1;
+		}
+		index=index+1;
+	};
+	while(s1<=k){
+		Aux[index]=A[s1];
+		s1=s1 + 1;
+		index=index+1;
+	};
+	while(s2<=j){
+		Aux[index]=A[s2];
+		s2=s2 + 1;
+		index=index+1;
+	};
+	int cord=0;
+	for (int num=i;num<=j;num++){
+		A[num]=Aux[cord];
+		cord=cord+1;
+	};
+	
+	};
+
 
 	void insertionSort(float* A,int n){     // ♦♦♦♦♦ INSERTION SORT ♦♦♦♦♦♦♦♦♦♦
 		for (int i=1; i<n ; i++){
