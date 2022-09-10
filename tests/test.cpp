@@ -30,18 +30,18 @@ void testSort(int max_size, int n_sizes){
 }
 
 void pre_test(int max_size){  //PARA PROBAR EL METODO CON SOLO UN ARREGLO PARA PROBAR SU UTILIDAD
-	int* sizes = sort::linspace(max_size,1);
+	//int* sizes = sort::linspace(max_size,1);
 	float* A = nullptr;
 	int n = 0;
 	//Crea arreglo aleatorio
-	n = sizes[0];
+	n = 10;
 	A = sort::createRandomIntArray(n, 0, 100);
 	//Muestra el arreglo creado
 	sort::printArray(A, n);
 	std::cout<<"-------"<<std::endl;
 
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-	sort::mergeSort(A,0,n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
+	sort::mergeSort(A,n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 	//Muestra el resultado del Arreglo
@@ -55,20 +55,20 @@ void pre_test(int max_size){  //PARA PROBAR EL METODO CON SOLO UN ARREGLO PARA P
 
 
 //ESTE MAIN ES PARA USAR EL PRE TEST DE NOSOTOROS
-//int main(int nargs, char** nvargs){
-//	int max_size = 10;
-//	pre_test(max_size);
-//	return 0;
-//}
+int main(int nargs, char** nvargs){
+	int max_size = 10;
+	pre_test(max_size);
+	return 0;
+}
 
 
 //ESTE MAIN ES PARA USAR EL TESTSORT DEL PROFE
-int main(int nargs, char** nvargs){
-	int n_sizes = 10;
-	int max_size = 1000000;
-	testSort(max_size, n_sizes);
-	return 0;
-}
+//int main(int nargs, char** nvargs){
+//	int n_sizes = 10;
+//	int max_size = 1000000;
+//	testSort(max_size, n_sizes);
+//	return 0;
+//}
 
 
 //int main(int nargs, char** args){

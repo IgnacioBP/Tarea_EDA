@@ -64,4 +64,63 @@ namespace sort{
 		}
 		return V;
 	}
+
+
+	int getMax(float*A,int n){
+		int max=-100000;
+		for (int i=0;i<=n; i++){
+			if (A[i]>max){
+				max=A[i];
+			}
+		}
+		return max;
+	}
+	
+	int countDigits(int max){
+
+		int quantity=1;
+		while (max>=10){
+			max=max/10;
+			quantity++;
+		}
+		return quantity;
+	}
+
+
+
+
+	int obtainDigit(int num,int pos,int max){
+		int val=0;
+		int expo=max-1;
+		while(max>=pos-1){
+			int poten=potencia(10,max);
+			//std::cout<<poten<<std::endl;
+			val=num/poten;
+			//std::cout<<val<<std::endl;
+			num=num-(val*poten);
+			max=max-1;
+		} 
+		return val;
+	}
+
+
+
+
+	int potencia(int num, int exp){
+		int data=num;
+		if (exp==0){
+			return 1;
+		}
+		else if(exp==1){
+			return data;
+		}
+		else{
+			for (int i=1;i<exp;i++){
+				data=data*num;
+			}
+			return data;
+		}
+	}
+
+
 }

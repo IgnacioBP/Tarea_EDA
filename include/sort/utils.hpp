@@ -12,10 +12,17 @@ namespace sort{
 	int getRandomInt(int min, int max);
 	int* linspace(int max, int n_parts);
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
-
-
-
+	//obtener numero mayor del arreglo
+	int getMax(float*A,int n);//obtener numero mayor del arreglo
 	
+	//cuenta el numero de digitos del numero mayor
+	int countDigits(int max);
+
+	//para extraer valores de la posicion (unidad=1,decena=2,etc)
+	int obtainDigit(int num,int pos,int max);
+
+	//potencia
+	int potencia(int num, int exp);
 }
 
 #endif

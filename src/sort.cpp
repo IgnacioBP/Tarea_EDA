@@ -81,12 +81,15 @@ namespace sort{
 
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
 	
-	// ♦♦♦♦♦ MERGE SORT ♦♦♦♦♦♦♦♦♦♦
-    void mergeSort(float* A,int i,int j) { // n es el tamaño del arreglo
+	// ♦♦♦♦♦ MERGE SORT ♦♦♦♦♦♦♦♦♦♦(ARREGLAR)
+	void mergeSort(float* A,int n){
+		mergesort(A,0, n-1);
+	}
+    void mergesort(float* A,int i,int j) { // n es el tamaño del arreglo
 		int k=(i + j)/2;
 		if (i < j){
-			mergeSort(A, i, k);
-			mergeSort(A, k + 1, j);
+			mergesort(A, i, k);
+			mergesort(A, (k+1), j);
 			merge(A, i,j, k);
 		}
 	};
@@ -140,6 +143,29 @@ namespace sort{
 			A[prev+1]=val;
 		};
 	};
+
+	
+	
+	
+	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+	void radixSort(float* A,int n){
+		int max=getMax(A,n);
+		int quant=countDigits(max);
+		
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

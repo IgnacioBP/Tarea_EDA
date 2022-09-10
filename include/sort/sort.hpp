@@ -9,9 +9,14 @@ namespace sort {
 	int  k_smallest(float* A, int i, int j, int k);
 	int  k_smallest(float* A, int n, int k);
 	//▬▬▬▬▬DE AQUI PARA ABAJO IMPLEMENTACIONES PROPIAS▬▬▬▬▬
-	void mergeSort(float* A,int i,int j);
+	void mergeSort(float* A,int n);
+	void mergesort(float* A,int i,int j);
 	void merge(float* A,int i,int j,int k);
 	void insertionSort(float* A,int n);
+
+	void specialBucket(float* A,int n,int max);
+
+	void radixSort();
 
 }
 
