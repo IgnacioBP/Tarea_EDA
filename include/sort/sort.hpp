@@ -14,9 +14,9 @@ namespace sort {
 	void merge(float* A,int i,int j,int k);
 	void insertionSort(float* A,int n);
 
-	void specialBucket(float* A,int n,int max);
+	void specialBucket(float* A,  int n, int pos,int digits);
 
-	void radixSort();
+	void radixSort(float* A,int n);
 
 }
 

@@ -1,6 +1,10 @@
 #include <iostream>
 #include "sort/sort.hpp"
 #include "sort/utils.hpp"
+#include "lLists/node.hpp"
+#include "lLists/linkedList.hpp"
+
+using namespace eda;
 
 namespace sort{
 
@@ -128,7 +132,7 @@ namespace sort{
 		A[num]=Aux[cord];
 		cord=cord+1;
 	};
-	
+	deleteArray(Aux);
 	};
 
 
@@ -148,10 +152,67 @@ namespace sort{
 	
 	
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+	void specialBucket(float* A,  int n, int pos,int digits){ 
+		
+
+		//crea arreglo auxiliar
+		float *Aux=createArray(n);
+		
+		
+		//crea 10 bucekets
+		LinkedList *buckets= new LinkedList[10];
+		
+		
+		//recorre arreglo y guarda en los buckets
+		int num;
+		
+		for (int i=0; i<n; i++){
+			num=obtainDigit(A[i],pos,digits);
+			
+			buckets[num].insertLast(A[i]);
+		}
+		//std::cout<<"ultimo numero: "<<num<<std::endl;
+		
+		//Saco de los buckets en orden y los guardo en el arreglo auxiliar
+		
+		int index=0;
+		for (int i=0; i<10; i++){
+			Node* ptr =buckets[i].getHead(); //obtengo el head para iniciar
+			//std::cout<<ptr<<std::endl;
+			while (ptr != nullptr) {
+				int val=ptr->getData();     //saco el dato del nodo
+				//std::cout<<val<<std::endl;
+				Aux[index]=val;				//guardo el dato del nodo en el arreglo auxiliar
+				index=index+1;				//cambio el indice
+				ptr = ptr->getNext();		//voy al nodo siguiente
+			}
+		}
+		
+		//Del arreglo auxiliar al Arreglo original
+		
+		for (int num=0;num<n;num++){
+			A[num]=Aux[num];
+		}
+		
+		//liberamos memoria de:
+
+		//el auxiliar
+		deleteArray(Aux);
+		//los buckets
+		for (int i=0; i<n; i++){
+			buckets[num].removeAll();
+		}
+		delete[] buckets;
+	}
 
 	void radixSort(float* A,int n){
-		int max=getMax(A,n);
+		int max=getMax(A,n-1);
 		int quant=countDigits(max);
+		
+
+		for (int i=1; i<=quant ;i++){
+			specialBucket(A,n,i,quant);
+		}
 		
 	}
 	

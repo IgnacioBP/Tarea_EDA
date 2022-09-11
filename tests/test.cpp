@@ -1,8 +1,12 @@
 #include "sort/sort.hpp"
 #include "sort/utils.hpp"
+#include "lLists/node.hpp"
+#include "lLists/linkedList.hpp"
 #include <chrono>
 #include <iostream>
 #include <ctime>
+
+using namespace eda;
 
 long getElapsedTime(std::chrono::time_point<std::chrono::high_resolution_clock> t1,
 		std::chrono::time_point<std::chrono::high_resolution_clock> t2){
@@ -19,7 +23,7 @@ void testSort(int max_size, int n_sizes){
 		A = sort::createRandomIntArray(n, 0, 100);
 		auto start = std::chrono::high_resolution_clock::now();
 		//change the sort method here
-		sort::insertionSort(A, n);
+		sort::mergeSort(A, n);
 		//--------------------------
 		auto end = std::chrono::high_resolution_clock::now();
 		long elapsed =  getElapsedTime(start, end);
@@ -41,7 +45,7 @@ void pre_test(int max_size){  //PARA PROBAR EL METODO CON SOLO UN ARREGLO PARA P
 	std::cout<<"-------"<<std::endl;
 
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-	sort::mergeSort(A,n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
+	sort::radixSort(A,n);  //PONER AQUI EL METODO QUE QUEREMOS PROBAR
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 	//Muestra el resultado del Arreglo
@@ -55,20 +59,20 @@ void pre_test(int max_size){  //PARA PROBAR EL METODO CON SOLO UN ARREGLO PARA P
 
 
 //ESTE MAIN ES PARA USAR EL PRE TEST DE NOSOTOROS
-int main(int nargs, char** nvargs){
-	int max_size = 10;
-	pre_test(max_size);
-	return 0;
-}
+//int main(int nargs, char** nvargs){
+//	int max_size = 10;
+//	pre_test(max_size);
+//	return 0;
+//}
 
 
 //ESTE MAIN ES PARA USAR EL TESTSORT DEL PROFE
-//int main(int nargs, char** nvargs){
-//	int n_sizes = 10;
-//	int max_size = 1000000;
-//	testSort(max_size, n_sizes);
-//	return 0;
-//}
+int main(int nargs, char** nvargs){
+	int n_sizes = 10;
+	int max_size = 1000000;
+	testSort(max_size, n_sizes);
+	return 0;
+}
 
 
 //int main(int nargs, char** args){
