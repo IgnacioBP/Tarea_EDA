@@ -152,82 +152,41 @@ namespace sort{
 	
 	
 	//▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-	void specialBucket(float* A,  int n, int pos,int digits){ 
-		
 
-		//crea arreglo auxiliar
-		float *Aux=createArray(n);
-		
-		
-		//crea 10 bucekets
-		LinkedList *buckets= new LinkedList[10];
-		
-		
-		//recorre arreglo y guarda en los buckets
-		int num;
-		
-		for (int i=0; i<n; i++){
-			num=obtainDigit(A[i],pos,digits);
-			
-			buckets[num].insertLast(A[i]);
-		}
-		//std::cout<<"ultimo numero: "<<num<<std::endl;
-		
-		//Saco de los buckets en orden y los guardo en el arreglo auxiliar
-		
-		int index=0;
-		for (int i=0; i<10; i++){
-			Node* ptr =buckets[i].getHead(); //obtengo el head para iniciar
-			//std::cout<<ptr<<std::endl;
-			while (ptr != nullptr) {
-				int val=ptr->getData();     //saco el dato del nodo
-				//std::cout<<val<<std::endl;
-				Aux[index]=val;				//guardo el dato del nodo en el arreglo auxiliar
-				index=index+1;				//cambio el indice
-				ptr = ptr->getNext();		//voy al nodo siguiente
-			}
-		}
-		
-		//Del arreglo auxiliar al Arreglo original
-		
-		for (int num=0;num<n;num++){
-			A[num]=Aux[num];
-		}
-		
-		//liberamos memoria de:
-
-		//el auxiliar
-		deleteArray(Aux);
-		//los buckets
-		for (int i=0; i<n; i++){
-			buckets[num].removeAll();
-		}
-		delete[] buckets;
+	void countSort(float* A, int n, int exp)
+	{
+    float* A_ux= createArray(n); // output array
+    int i, count[10] = { 0 };
+ 
+    // Store count of occurrences in count[]
+    for (i = 0; i < n; i++)
+        count[((int)A[i] / exp) % 10]++;
+ 
+    // Change count[i] so that count[i] now contains actual
+    //  position of this digit in output[]
+    for (i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+ 
+    // Build the output array
+    for (i = n - 1; i >= 0; i--) {
+        A_ux[count[((int)A[i] / exp) % 10] - 1] = A[i];
+		count[((int)A[i] / exp) % 10]--;
 	}
 
-	void radixSort(float* A,int n){
-		int max=getMax(A,n-1);
-		int quant=countDigits(max);
-		
-
-		for (int i=1; i<=quant ;i++){
-			specialBucket(A,n,i,quant);
-		}
-		
-	}
 	
+ 
+    // Copy the output array to arr[], so that arr[] now
+    // contains sorted numbers according to current digit
+    for (i = 0; i < n; i++)
+        A[i] = A_ux[i];
 
+	deleteArray(A_ux);
+	}
 
-
-
-
-
-
-
-
-
-
+	void radixSort(float* A, int n){
+		int max= getMax(A, n);
+		
+		for (int exp = 1; max / exp > 0; exp *= 10)
+        countSort(A, n, exp);
+	}
 }
-
-
-

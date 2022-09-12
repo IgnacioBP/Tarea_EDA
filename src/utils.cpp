@@ -66,7 +66,7 @@ namespace sort{
 	}
 
 
-	int getMax(float*A,int n){
+	/*int getMax(float*A,int n){
 		int max=-100000;
 		for (int i=0;i<=n; i++){
 			if (A[i]>max){
@@ -74,6 +74,15 @@ namespace sort{
 			}
 		}
 		return max;
+	}*/
+	
+	int getMax(float* A, int n)
+	{
+    int mx = A[0];
+    for (int i = 1; i < n; i++)
+        if (A[i] > mx)
+            mx = A[i];
+    return mx;
 	}
 	
 	int countDigits(int max){
