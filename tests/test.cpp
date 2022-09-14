@@ -20,7 +20,7 @@ void testSort(int max_size, int n_sizes){
 	int n = 0;
 	for (int i = 0; i < n_sizes; i++){
 		n = sizes[i];
-		A = sort::createRandomIntArray(n, 0, 100);
+		A = sort::createRandomIntArray(n, 0, 99999);
 		auto start = std::chrono::high_resolution_clock::now();
 		//change the sort method here
 		sort::radixSort(A, n);

@@ -1,3 +1,0 @@
-C:/Users/ilcob/Desktop/tarea eda/Tarea_EDA/built/CMakeFiles/test.dir
-C:/Users/ilcob/Desktop/tarea eda/Tarea_EDA/built/CMakeFiles/edit_cache.dir
-C:/Users/ilcob/Desktop/tarea eda/Tarea_EDA/built/CMakeFiles/rebuild_cache.dir
