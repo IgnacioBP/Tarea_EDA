@@ -1,0 +1,3 @@
+C:/Users/ibrav/Desktop/algo/Tarea_EDA/build/CMakeFiles/test.dir
+C:/Users/ibrav/Desktop/algo/Tarea_EDA/build/CMakeFiles/edit_cache.dir
+C:/Users/ibrav/Desktop/algo/Tarea_EDA/build/CMakeFiles/rebuild_cache.dir
