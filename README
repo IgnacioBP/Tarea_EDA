@@ -1,0 +1,10 @@
+En la carpeta padre (donde estan las carpetas sort include, etc)
+Abrir la terminal e ingresar el comando mkdir build para crear la carpeta build
+Luego te mueves a esa carpeta con cd build
+Y estando en la carpeta pones:
+cmake .. -G "MinGW Makefiles"
+luego que se termine de ejecutar ese comando pones
+mingw32-make
+para crear el ejecutable
+finalmente pones .\test
+para ejecutar el test
